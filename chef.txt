@@ -1,0 +1,1 @@
+ii  chef                             13.6.4-1                                   amd64        The full stack of chef

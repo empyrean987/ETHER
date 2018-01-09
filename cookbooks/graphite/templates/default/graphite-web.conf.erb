@@ -1,0 +1,30 @@
+# Graphite Web Basic mod_wsgi vhost
+#WSGIPythonPath /usr/lib/python2.6/site-packages:/usr/lib/python2.7/site-packages
+<VirtualHost *:10080>
+
+    ServerName graphite-web
+    DocumentRoot "/opt/graphite/webapp"
+    ErrorLog /var/log/httpd/graphite-web-error.log
+    CustomLog /var/log/httpd/graphite-web-access.log common
+    Alias /media/ "/usr/local/lib/python2.7/site-packages/django/contrib/admin"
+
+    WSGIScriptAlias / /opt/graphite/conf/graphite.wsgi
+    WSGIImportScript /opt/graphite/conf/graphite.wsgi process-group=%{GLOBAL} application-group=%{GLOBAL}
+
+    <Location "/content/">
+        SetHandler None
+    </Location>
+
+    <Location "/media/">
+        SetHandler None
+    </Location>
+
+   <Directory /opt/graphite/conf>
+        ErrorDocument 403 "/error/error.html"
+        Allow from 50.129.54
+        Allow from 162.246.216
+        Allow from 216.1.169.18
+        deny from all
+    </Directory>
+
+</VirtualHost>
