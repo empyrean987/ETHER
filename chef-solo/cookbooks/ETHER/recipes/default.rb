@@ -6,3 +6,8 @@
 apt_package 'software-properties-common' do
   action :install
 end
+
+apt_repository 'ethereum-qt' do
+  uri        'http://ppa:ethereum/ethereum-qt'
+end
+
