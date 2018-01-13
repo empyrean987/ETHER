@@ -15,5 +15,5 @@ else
 fi
 wget https://packages.chef.io/files/stable/chefdk/2.4.17/ubuntu/16.04/chefdk_2.4.17-1_amd64.deb
 sudo dpkg -i chefdk_2.4.17-1_amd64.deb 
-echo "Pulling down chef cookbooks for Graphite"
-chef-solo -c ~/chef_code/chef-solo/solo.rb
+echo "Pulling down chef cookbooks"
+chef-solo -c /home/ubuntu/ETHER/chef-solo/solo.rb
