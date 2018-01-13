@@ -24,3 +24,9 @@ apt_update 'update'
 apt_package 'ethereum' do
   action :install
 end
+
+apt_update 'update'
+
+apt_package 'cpp-ethereum'
+  action :install
+end
