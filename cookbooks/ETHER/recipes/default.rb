@@ -8,15 +8,15 @@ apt_package 'software-properties-common' do
 end
 
 apt_repository 'ethereum-qt' do
-  uri        'http://ppa:ethereum/ethereum-qt'
+  uri        'ppa:ethereum/ethereum-qt'
 end
 
 apt_repository 'ethereum' do
-  uri        'http://ppa:ethereum/ethereum'
+  uri        'ppa:ethereum/ethereum'
 end
 
 apt_repository 'ethereum-dev' do
-  uri        'http://ppa:ethereum/ethereum-dev'
+  uri        'ppa:ethereum/ethereum-dev'
 end
 
 apt_update 'update'
@@ -27,6 +27,6 @@ end
 
 apt_update 'update'
 
-apt_package 'cpp-ethereum'
+apt_package 'cpp-ethereum' do
   action :install
 end
