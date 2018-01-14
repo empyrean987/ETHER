@@ -56,6 +56,6 @@ apt_package 'cuda' do
   action :install
 end
 
-apt_package 'aws' do
-  action: install
+apt_package 'awscli' do
+  action :install
 end
