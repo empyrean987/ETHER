@@ -48,7 +48,7 @@ execute 'apt_key' do
   command 'apt-key add /var/cuda-repo-9-1-local/7fa2af80.pub'
 end
 
-apt-update 'update'
+apt_update 'update'
 
 apt_package 'cuda' do
   action :install
