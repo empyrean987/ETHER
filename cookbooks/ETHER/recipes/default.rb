@@ -47,3 +47,15 @@ end
 execute 'apt_key' do
   command 'apt-key add /var/cuda-repo-9-1-local/7fa2af80.pub'
 end
+
+execute 'aptupdate' do
+  command 'apt-get update'
+end
+
+apt_package 'cuda' do
+  action :install
+end
+
+apt_package 'aws' do
+  action: install
+end
