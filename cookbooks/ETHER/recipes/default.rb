@@ -59,3 +59,26 @@ end
 apt_package 'awscli' do
   action :install
 end
+
+directory '/home/ubuntu/electroneum' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
+remote_file '/home/ubuntu/electroneum/linux-x64-0.11.0.0.zip' do
+  source 'https://github.com/electroneum/electroneum/releases/download/v0.11.0.0/linux-x64-0.11.0.0.zip'
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
+apt_package 'unzip'
+  action: install
+end
+
+execute 'unzip_electroneum' do
+  command 'unzip /home/ubuntu/electroneum/linux-x64-0.11.0.0.zip -d /home/ubuntu/electroneum'
+end
