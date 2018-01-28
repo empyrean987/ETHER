@@ -75,10 +75,38 @@ remote_file '/home/ubuntu/electroneum/linux-x64-0.11.0.0.zip' do
   action :create
 end
 
-apt_package 'unzip'
+apt_package 'unzip' do
   action :install
 end
 
 execute 'unzip_electroneum' do
   command 'unzip /home/ubuntu/electroneum/linux-x64-0.11.0.0.zip -d /home/ubuntu/electroneum'
+end
+
+remote_file '/home/ubuntu/ethereum/Claymore.s.Dual.Ethereum.Decred_Siacoin_Lbry_Pascal.AMD.NVIDIA.GPU.Miner.v10.0.-.LINUX.tar.gz' do
+  source 'https://github.com/nanopool/Claymore-Dual-Miner/releases/download/v10.0/Claymore.s.Dual.Ethereum.Decred_Siacoin_Lbry_Pascal.AMD.NVIDIA.GPU.Miner.v10.0.-.LINUX.tar.gz'
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end  
+
+directory '/home/ubuntu/electroneum/yam' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
+cookbook_file "/home/ubuntu/electroneum/yam/Archive-9383.zip" do
+  source "Archive-9383.zip"
+  mode 0755
+end
+
+execute 'unzip_electroneum_yam' do
+  command 'unzip /home/ubuntu/electroneum/yam/Archive-9383.zip -d /home/ubuntu/electroneum/yam'
+end
+
+execute 'unzip_electroneum_yam' do
+  command 'tar xvf /home/ubuntu/electroneum/yam/yam-yvg1900-M7v-linux64-generic.tgz -C /home/ubuntu/electroneum/yam/'
 end
