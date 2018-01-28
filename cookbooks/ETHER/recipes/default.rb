@@ -76,7 +76,7 @@ remote_file '/home/ubuntu/electroneum/linux-x64-0.11.0.0.zip' do
 end
 
 apt_package 'unzip'
-  action: install
+  action :install
 end
 
 execute 'unzip_electroneum' do
