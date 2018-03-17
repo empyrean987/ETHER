@@ -80,7 +80,7 @@ apt_package 'unzip' do
 end
 
 execute 'unzip_electroneum' do
-  command 'unzip /home/ubuntu/electroneum/linux-x64-0.11.0.0.zip -d /home/ubuntu/electroneum'
+  command 'unzip -f /home/ubuntu/electroneum/linux-x64-0.11.0.0.zip -d /home/ubuntu/electroneum'
 end
 
 remote_file '/home/ubuntu/ethereum/Claymore.s.Dual.Ethereum.Decred_Siacoin_Lbry_Pascal.AMD.NVIDIA.GPU.Miner.v10.0.-.LINUX.tar.gz' do
@@ -104,7 +104,7 @@ cookbook_file "/home/ubuntu/electroneum/yam/Archive-9383.zip" do
 end
 
 execute 'unzip_electroneum_yam' do
-  command 'unzip /home/ubuntu/electroneum/yam/Archive-9383.zip -d /home/ubuntu/electroneum/yam'
+  command 'unzip -f /home/ubuntu/electroneum/yam/Archive-9383.zip -d /home/ubuntu/electroneum/yam'
 end
 
 execute 'unzip_electroneum_yam' do
