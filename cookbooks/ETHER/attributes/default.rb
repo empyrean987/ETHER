@@ -1,1 +1,1 @@
-default[ETHER][enable_cuda]=false
+default['ETHER']['enable_cuda']=false
