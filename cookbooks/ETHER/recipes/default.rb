@@ -83,6 +83,13 @@ execute 'unzip_electroneum' do
   command 'unzip -f /home/ubuntu/electroneum/linux-x64-0.11.0.0.zip -d /home/ubuntu/electroneum'
 end
 
+directory '/home/ubuntu/ethereum' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
 remote_file '/home/ubuntu/ethereum/Claymore.s.Dual.Ethereum.Decred_Siacoin_Lbry_Pascal.AMD.NVIDIA.GPU.Miner.v10.0.-.LINUX.tar.gz' do
   source 'https://github.com/nanopool/Claymore-Dual-Miner/releases/download/v10.0/Claymore.s.Dual.Ethereum.Decred_Siacoin_Lbry_Pascal.AMD.NVIDIA.GPU.Miner.v10.0.-.LINUX.tar.gz'
   owner 'root'
