@@ -80,7 +80,7 @@ apt_package 'unzip' do
 end
 
 execute 'unzip_electroneum' do
-  command 'unzip -f /home/ubuntu/electroneum/linux-x64-0.11.0.0.zip -d /home/ubuntu/electroneum'
+  command 'unzip -o /home/ubuntu/electroneum/linux-x64-0.11.0.0.zip -d /home/ubuntu/electroneum'
 end
 
 directory '/home/ubuntu/ethereum' do
@@ -111,9 +111,9 @@ cookbook_file "/home/ubuntu/electroneum/yam/Archive-9383.zip" do
 end
 
 execute 'unzip_electroneum_yam' do
-  command 'unzip -f /home/ubuntu/electroneum/yam/Archive-9383.zip -d /home/ubuntu/electroneum/yam'
+  command 'unzip -o /home/ubuntu/electroneum/yam/Archive-9383.zip -d /home/ubuntu/electroneum/yam'
 end
 
-execute 'unzip_electroneum_yam' do
+execute 'untar_electroneum_yam' do
   command 'tar xvf /home/ubuntu/electroneum/yam/yam-yvg1900-M7v-linux64-generic.tgz -C /home/ubuntu/electroneum/yam/'
 end
