@@ -96,7 +96,11 @@ remote_file '/home/ubuntu/ethereum/Claymore.s.Dual.Ethereum.Decred_Siacoin_Lbry_
   group 'root'
   mode '0755'
   action :create
-end  
+end
+
+execute 'untar_electroneum_yam' do
+  command 'tar xvf /home/ubuntu/ethereum/Claymore.s.Dual.Ethereum.Decred_Siacoin_Lbry_Pascal.AMD.NVIDIA.GPU.Miner.v10.0.-.LINUX.tar.gz -C /home/ubuntu/ethereum/'
+end
 
 directory '/home/ubuntu/electroneum/yam' do
   owner 'root'
