@@ -45,7 +45,7 @@ execute 'nvidia_gpus' do
   command 'nvidia-xconfig --enable-all-gpus'
 end
 
-execute 'nvidia_cool'
+execute 'nvidia_cool' do
   command 'nvidia-xconfig --cool-bits=28'
 end
 #remote_file '/home/ubuntu/cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64' do
