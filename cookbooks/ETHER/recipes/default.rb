@@ -21,7 +21,7 @@ end
 
 apt_update 'update'
 
-apt_package 'nvidia-387' do
+apt_package 'nvidia-384' do
   action :install
 end
 
@@ -46,7 +46,18 @@ execute 'nvidia_gpus' do
 end
 
 execute 'nvidia_cool' do
-  command 'nvidia-xconfig --cool-bits=28'
+  command 'nvidia-xconfig -a --cool-bits=28 --allow-empty-initial-configuration'
+end
+
+directory '/var/run/nvidia-persistenced' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
+service 'lightdm' do
+  action :start
 end
 #remote_file '/home/ubuntu/cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64' do
 #  source 'https://developer.nvidia.com/compute/cuda/9.1/Prod/local_installers/cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64'
@@ -131,10 +142,47 @@ cookbook_file "/home/ubuntu/electroneum/yam/Archive-9383.zip" do
   mode 0755
 end
 
-execute 'unzip_electroneum_yam' do
-  command 'unzip -o /home/ubuntu/electroneum/yam/Archive-9383.zip -d /home/ubuntu/electroneum/yam'
-end
-
 execute 'untar_electroneum_yam' do
   command 'tar xvf /home/ubuntu/electroneum/yam/yam-yvg1900-M7v-linux64-generic.tgz -C /home/ubuntu/electroneum/yam/'
+end
+
+directory '/home/ubuntu/zcash' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
+remote_file '/home/ubuntu/zcash/Zec.miner.0.3.4b.zip' do
+  source 'https://github.com/nanopool/ewbf-miner/releases/download/v0.3.4b/Zec.miner.0.3.4b.zip'
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
+execute 'unzip_zcash' do
+  command 'unzip -o /home/ubuntu/zcash/Zec.miner.0.3.4b.zip -d /home/ubuntu/zcash'
+end
+
+directory '/home/ubuntu/Scripts' do
+  owner 'root'
+  group 'root'
+  mode '0755'
+  action :create
+end
+
+cookbook_file "/home/ubuntu/Scripts/eth.sh" do
+  source "eth.sh"
+  mode 0755
+end
+
+cookbook_file "home/ubuntu/Scripts/elec.sh" do
+  source "elec.sh"
+  mode 0755
+end
+
+cookbook_file 'home/ubuntu/Scripts/zcash.sh' do
+  source "zcash.sh"
+  mode 0755
 end
