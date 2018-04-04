@@ -41,24 +41,24 @@ apt_package 'lightdm' do
   action :install
 end
 
-execute 'nvidia_gpus' do
-  command 'nvidia-xconfig --enable-all-gpus'
-end
+#execute 'nvidia_gpus' do
+#  command 'nvidia-xconfig --enable-all-gpus'
+#end
 
-execute 'nvidia_cool' do
-  command 'nvidia-xconfig -a --cool-bits=28 --allow-empty-initial-configuration'
-end
+#execute 'nvidia_cool' do
+#  command 'nvidia-xconfig -a --cool-bits=28 --allow-empty-initial-configuration'
+#end
 
-directory '/var/run/nvidia-persistenced' do
-  owner 'root'
-  group 'root'
-  mode '0755'
-  action :create
-end
+#directory '/var/run/nvidia-persistenced' do
+#  owner 'root'
+#  group 'root'
+#  mode '0755'
+#  action :create
+#end
 
-service 'lightdm' do
-  action :start
-end
+#service 'lightdm' do
+#  action :start
+#end
 #remote_file '/home/ubuntu/cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64' do
 #  source 'https://developer.nvidia.com/compute/cuda/9.1/Prod/local_installers/cuda-repo-ubuntu1604-9-1-local_9.1.85-1_amd64'
 #  owner 'root'
