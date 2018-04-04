@@ -126,7 +126,7 @@ remote_file '/home/ubuntu/ethereum/Claymore.s.Dual.Ethereum.Decred_Siacoin_Lbry_
   action :create
 end
 
-execute 'untar_electroneum_yam' do
+execute 'untar_claymore' do
   command 'tar xvf /home/ubuntu/ethereum/Claymore.s.Dual.Ethereum.Decred_Siacoin_Lbry_Pascal.AMD.NVIDIA.GPU.Miner.v10.0.-.LINUX.tar.gz -C /home/ubuntu/ethereum/'
 end
 
@@ -141,6 +141,11 @@ cookbook_file "/home/ubuntu/electroneum/yam/Archive-9383.zip" do
   source "Archive-9383.zip"
   mode 0755
 end
+
+execute 'unzip_archive' do
+  command 'unzip -o /home/ubuntu/electroneum/yam/Archive-9383.zip -d /home/ubuntu/electroneum/yam/'
+end
+
 
 execute 'untar_electroneum_yam' do
   command 'tar xvf /home/ubuntu/electroneum/yam/yam-yvg1900-M7v-linux64-generic.tgz -C /home/ubuntu/electroneum/yam/'
