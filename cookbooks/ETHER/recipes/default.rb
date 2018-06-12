@@ -170,24 +170,24 @@ execute 'unzip_zcash' do
   command 'unzip -o /home/ubuntu/zcash/Zec.miner.0.3.4b.zip -d /home/ubuntu/zcash'
 end
 
-directory '/home/ubuntu/Scripts' do
+directory '/home/ubuntu/scripts' do
   owner 'root'
   group 'root'
   mode '0755'
   action :create
 end
 
-cookbook_file "/home/ubuntu/Scripts/eth.sh" do
+cookbook_file "/home/ubuntu/scripts/eth.sh" do
   source "eth.sh"
   mode 0755
 end
 
-cookbook_file "home/ubuntu/Scripts/elec.sh" do
+cookbook_file "home/ubuntu/scripts/elec.sh" do
   source "elec.sh"
   mode 0755
 end
 
-cookbook_file 'home/ubuntu/Scripts/zcash.sh' do
+cookbook_file 'home/ubuntu/scripts/zcash.sh' do
   source "zcash.sh"
   mode 0755
 end
